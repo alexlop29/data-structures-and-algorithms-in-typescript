@@ -58,3 +58,13 @@ function isPalindrome(x: number): boolean {
 
     return true
 };
+
+/*
+Solution By Another User
+https://leetcode.com/problems/palindrome-number/solutions/3494578/simple-ts-js-beats-91-65/?envType=study-plan-v2&envId=top-interview-150
+*/
+function isPalindrome(x: number): boolean {
+    const reversed = `${x}`.split('').reverse().join('')
+
+    return `${x}` === reversed
+};
