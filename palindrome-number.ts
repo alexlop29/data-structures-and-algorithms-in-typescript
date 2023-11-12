@@ -20,6 +20,11 @@ Constraints:
 -231 <= x <= 231 - 1
 */
 
+/*
+Solution: Convert the number to an array. Create second array of the number and reverse it. Then, compare the two arrays.
+Runtime: 163 ms
+Memory: 51.9 MB
+*/
 function isPalindrome(x: number): boolean {
     let numToArray, reversedArray;
     numToArray = Array.from(String(x), String);
@@ -31,4 +36,25 @@ function isPalindrome(x: number): boolean {
     }
 
     return false;
+};
+
+/*
+Solution: Convert the number to an array and implement a two-pointer loop to compare the starting and ending values. 
+Runtime: 181 ms
+Memory: 52.2 MB
+*/
+function isPalindrome(x: number): boolean {
+    let arrayOfNum = Array.from(String(x), String);
+    let firstPointer = 0;
+    let secondPointer = arrayOfNum.length-1;
+
+    while (firstPointer <  secondPointer){
+        if (arrayOfNum[firstPointer] != arrayOfNum[secondPointer]){
+            return false
+        }
+        firstPointer += 1;
+        secondPointer -= 1;
+    }
+
+    return true
 };
