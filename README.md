@@ -1,2 +1,2 @@
-# practice-coding-interview-in-typescript
-Contains coding snippets developed while practicing interview questions
+# About
+Contains a comprehensive collection of coding samples, demonstrating data structures and algorithms, in Typescript
