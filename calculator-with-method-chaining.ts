@@ -1,7 +1,6 @@
 /*
-Design a Calculator class.
-The class should provide the mathematical operations of addition, subtraction, 
-multiplication, division, and exponentiation. 
+Design a Calculator class. The class should provide the mathematical operations of addition,
+subtraction, multiplication, division, and exponentiation.
 It should also allow consecutive operations to be performed using method chaining.
 The Calculator class constructor should accept a number which serves as the initial value of result.
 
@@ -40,8 +39,8 @@ Explanation:
 new Calculator(20).divide(0).getResult() // 20 / 0 
 
 The error should be thrown because we cannot divide by zero.
-
 Constraints:
+
 actions is a valid JSON array of strings
 values is a valid JSON array of numbers
 2 <= actions.length <= 2 * 104
@@ -52,38 +51,36 @@ Last action is always "getResult"
 */
 
 class Calculator {
-    current: number;
+    value;
     
     constructor(value: number) {
-        this.current = value;
+        this.value = value;
     }
     
     add(value: number): Calculator {
-        this.current += value;
-        return(new Calculator(this.current));
+        return new Calculator(this.value + value);
     }
     
     subtract(value: number): Calculator {
-        this.current -= value;
-        return(new Calculator(this.current));
+        return new Calculator(this.value - value);
     }
     
     multiply(value: number): Calculator {
-        this.current *= value;
-        return(new Calculator(this.current));
+        return new Calculator(this.value * value);
     }
     
-    divide(value: number): Calculator{
-        this.current /= value;
-        return(new Calculator(this.current));
+    divide(value: number): Calculator {
+        if (value == 0){
+            throw new Error("Division by zero is not allowed");
+        }
+        return new Calculator(this.value / value);
     }
     
     power(value: number): Calculator {
-        this.current **= value;
-        return(new Calculator(this.current));
+        return new Calculator(Math.pow(this.value, value));
     }
     
     getResult(): number {
-        return(this.current);
+        return this.value;
     }
 }
